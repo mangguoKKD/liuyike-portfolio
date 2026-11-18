@@ -1,0 +1,7 @@
+@media (hover:hover) and (pointer:fine){
+  .profile-chapter.profile-pencil-active,.profile-chapter.profile-pencil-active *,#experience.profile-pencil-active,#experience.profile-pencil-active *{cursor:none!important}
+  .profile-pencil-trail{position:fixed;inset:0;z-index:9996;width:100vw;height:100vh;pointer-events:none}
+  .profile-pencil-cursor{position:fixed;left:0;top:0;z-index:10002;width:30px;height:30px;pointer-events:none;opacity:0;transform:translate3d(-4px,-27px,0);filter:drop-shadow(0 1px 3px #7e2c5266);transition:opacity .12s ease}
+  .profile-pencil-cursor.visible{opacity:1}
+}
+@media(prefers-reduced-motion:reduce){.profile-pencil-cursor{transition:none}}

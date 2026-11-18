@@ -1,0 +1,156 @@
+
+.scroll-hint{text-decoration:none}.scroll-hint:focus-visible{outline:2px solid var(--ink)}
+@media(min-width:621px){html{scroll-snap-type:y proximity}}
+.studies{position:relative;isolation:isolate;overflow:hidden;margin-inline:calc(-1 * clamp(18px,4.6vw,90px));background:#0d0c10;color:#f8f3f5;font-family:Arial,"Microsoft YaHei",sans-serif;scroll-snap-align:start;scroll-snap-stop:always}
+.studies::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse 9% 72% at 0% 50%,#9a1b50a6,transparent),radial-gradient(ellipse 9% 72% at 100% 50%,#9a1b50a6,transparent)}
+.studies-inner{max-width:1880px;min-height:100svh;margin:auto;padding:clamp(24px,3vw,50px) 2.6vw 28px;display:grid;grid-template-rows:auto auto minmax(250px,1fr) auto;align-items:center;gap:clamp(10px,2vh,28px)}
+.study-rail{display:flex;justify-content:space-between;align-items:center;padding:0 1.1vw;font-size:clamp(12px,1vw,17px);letter-spacing:.08em;color:#d9cbd1}.study-brand{color:white;font-size:clamp(24px,2.5vw,36px);font-weight:900;letter-spacing:-.06em;text-decoration:none}.study-brand i{color:#f0a4c5;font-style:normal}
+.study-heading h2{margin:0;text-align:center;white-space:nowrap;font:900 clamp(44px,8.2vw,160px)/.94 Arial Black,Arial,sans-serif;letter-spacing:-.065em;background:linear-gradient(90deg,#9d969d,#fff 72%);background-clip:text;color:transparent}
+.study-heading h2{position:relative}
+.study-heading h2::after{content:attr(data-shine);position:absolute;inset:0;pointer-events:none;color:#ffffff;-webkit-text-fill-color:#ffffff;background:none;-webkit-mask-image:linear-gradient(90deg,transparent 30%,#000 50%,transparent 70%);mask-image:linear-gradient(90deg,transparent 30%,#000 50%,transparent 70%);-webkit-mask-size:150% 100%;mask-size:150% 100%;-webkit-mask-position:200% 0;mask-position:200% 0;filter:drop-shadow(0 0 10px #ffffffaa);animation:study-title-shine 2.6s linear infinite}
+@keyframes study-title-shine{0%{-webkit-mask-position:200% 0;mask-position:200% 0}100%{-webkit-mask-position:-100% 0;mask-position:-100% 0}}
+@media(prefers-reduced-motion:reduce){.study-heading h2::after{animation:none;visibility:hidden}}
+
+/* Gather the closing copy from a soft, drifting haze. */
+.study-note .smoky-char{display:inline-block;white-space:pre;opacity:0;filter:blur(11px);transform:translate3d(var(--smoke-x),var(--smoke-y),0) rotate(var(--smoke-rotation)) scale(1.06)}
+.study-note.smoky-ready .smoky-char{animation:smoky-gather .82s cubic-bezier(.18,.72,.24,1) both;animation-delay:calc(var(--smoke-index)*.028s)}
+@keyframes smoky-gather{0%{opacity:0;filter:blur(11px);transform:translate3d(var(--smoke-x),var(--smoke-y),0) rotate(var(--smoke-rotation)) scale(1.06)}100%{opacity:1;filter:blur(0);transform:translate3d(0,0,0) rotate(0) scale(1)}}
+@media(prefers-reduced-motion:reduce){.study-note .smoky-char{animation:none!important;opacity:1;filter:none;transform:none}}
+
+/* Warm glow pointer, scoped to the second-screen overview only. */
+@media(hover:hover) and (pointer:fine){
+  :is(.studies,#ai,#sancan).cursor-glow-active,:is(.studies,#ai,#sancan).cursor-glow-active *{cursor:none!important}
+  .studies-light-cursor{position:fixed;left:0;top:0;z-index:10000;width:0;height:0;pointer-events:none;opacity:0;transition:opacity .2s ease}
+  .studies-light-cursor::before{content:"";position:absolute;left:-3px;top:-3px;width:6px;height:6px;border-radius:50%;background:#fffdf4;box-shadow:0 0 7px 3px #fff4dcbb,0 0 21px 9px #ffffff65,0 0 40px 17px #fff2d72b}
+  .studies-light-cursor.visible{opacity:1}
+}
+@media(prefers-reduced-motion:reduce){.studies-light-cursor{transition:none}}
+.study-film{width:100%;align-self:stretch;display:flex;align-items:center;overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent)}
+.study-track{width:max-content;display:flex;align-items:center;animation:film-loop 32s linear infinite;will-change:transform}
+.study-set{display:flex;gap:clamp(20px,2.2vw,42px);align-items:center;flex:none;padding-right:clamp(20px,2.2vw,42px)}
+.study{width:clamp(240px,20vw,375px);flex:none;margin:0;transform:perspective(900px) rotateY(var(--turn,0deg)) translateY(var(--drop,0px));transition:transform .25s linear}.study-shot{height:clamp(240px,31vh,350px);overflow:hidden;background:#211d21;clip-path:polygon(0 0,100% 0,100% 100%,0 100%)}.study-shot img{width:100%;height:100%;display:block;object-fit:cover;object-position:center 32%}.study figcaption{display:flex;justify-content:space-between;margin-top:8px;color:#d7bcc9;font-size:11px;letter-spacing:.13em}.study figcaption small{font:inherit;color:#f0a4c5}
+.study-note{text-align:center;max-width:680px;margin:0 auto;font-size:clamp(17px,1.35vw,24px);line-height:1.55;letter-spacing:.035em}.study-end{display:flex;justify-content:space-between;font-size:11px;letter-spacing:.12em;color:#b4a7ae}
+@keyframes film-loop{to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+@media(prefers-reduced-motion:reduce){.study-track{animation:none}.study-film{overflow-x:auto}.study-set[aria-hidden="true"]{display:none}}
+@media(max-width:620px){.studies{margin-inline:-12px}.studies-inner{padding:22px 12px;grid-template-rows:auto auto 260px auto;min-height:780px}.study-heading h2{font-size:12vw}.study{width:66vw}.study-shot{height:220px}.study-rail{font-size:10px}.study-brand{font-size:21px}.study-note{font-size:15px}}
+.study-track.is-paused{animation-play-state:paused}
+.study-shot{cursor:zoom-in}.study-shot:focus-visible{outline:2px solid #f0a4c5;outline-offset:4px}
+.study-dialog{border:1px solid #9e5777;background:#101014;color:#fff;padding:22px;max-width:min(80vw,760px);max-height:88vh;box-shadow:0 24px 80px #000b}.study-dialog::backdrop{background:#08070acc;backdrop-filter:blur(5px)}.study-dialog img{display:block;max-width:100%;max-height:72vh;object-fit:contain}.study-dialog p{margin:14px 0 0;text-align:center;font-size:14px;letter-spacing:.08em}.study-close{position:absolute;right:5px;top:0;border:0;background:none;color:#fff;font-size:30px;cursor:pointer}
+.study-shot{position:relative;display:block;width:100%;padding:0;border:0;text-align:left;color:white;cursor:pointer;background:#1c151b}
+.study-shot:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#0d0c1040 0%,#0d0c10b5 58%,#0d0c10ed 100%);pointer-events:none}
+.study-shot img{filter:grayscale(.2) brightness(.72);transition:scale .6s ease}
+.study-shot:hover img{scale:1.04}
+.study-content{position:absolute;inset:0;z-index:1;display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(18px,2vw,30px)}
+.study-content small{color:#f1b3cd;font:700 12px Arial,sans-serif;letter-spacing:.2em;margin-bottom:auto}
+.study-content strong{font:900 clamp(30px,3vw,52px)/1.15 "Microsoft YaHei",sans-serif;letter-spacing:.04em}
+.study-content em{font:600 clamp(11px,.85vw,15px) Arial,sans-serif;font-style:normal;letter-spacing:.11em;color:#f3b6d0;margin-top:8px}
+.study-teaser{font:13px "Microsoft YaHei",sans-serif;color:#f7e8ef;margin-top:16px}
+.study-caption{display:flex;justify-content:space-between;margin-top:8px;color:#d7bcc9;font:11px Arial,sans-serif;letter-spacing:.13em}.study-caption small{font:inherit;color:#f0a4c5}
+.study-dialog{width:min(640px,85vw);padding:32px 34px}.study-dialog h3{font:900 clamp(32px,4vw,52px) "Microsoft YaHei",sans-serif;margin:6px 0 5px}.study-dialog .dialog-en{color:#eaa4c2;letter-spacing:.15em;font:13px Arial,sans-serif}.study-dialog .dialog-copy{font:17px/1.8 "Microsoft YaHei",sans-serif;text-align:left;margin-top:26px}.study-dialog .dialog-kicker{font:12px Arial,sans-serif;color:#eaa4c2;letter-spacing:.18em}
+@media(max-width:620px){.study-content strong{font-size:30px}.study-teaser{font-size:11px}.study-dialog{padding:26px 20px}}
+/* Resume carousel captions sit below the artwork; imagery keeps its original color. */
+.study-shot{height:auto;overflow:visible;background:transparent;color:#f8f3f5;display:flex;flex-direction:column}
+.study-shot::after{display:none}
+.study-shot img{height:clamp(240px,31vh,350px);flex:none;filter:none;scale:1!important}
+.study-content{position:static;inset:auto;display:flex;flex-direction:column;justify-content:flex-start;align-items:flex-start;padding:16px 2px 0;min-height:118px}
+.study-content small{margin:0 0 7px;color:#e9a4c2}
+.study-content strong{font-size:clamp(24px,2vw,35px);line-height:1.15}
+.study-content em{margin-top:5px;font-size:12px;color:#e9a4c2}
+.study-teaser{display:none}
+.study-caption{display:none}
+@media(max-width:620px){.study-shot img{height:220px}.study-content{min-height:100px}.study-content strong{font-size:24px}}
+.study-rail{display:grid;grid-template-columns:1.15fr repeat(4,1fr);gap:18px;width:100%;align-items:center}
+.study-rail button{border:0;background:none;color:#e8dfe3;cursor:pointer;font:600 clamp(14px,1.25vw,20px) "Microsoft YaHei",sans-serif;white-space:nowrap;padding:12px 4px;text-align:center;transition:color .2s ease}
+.study-rail button:hover,.study-rail button:focus-visible{color:#f0a4c5}
+.study-rail button:focus-visible{outline:2px solid #f0a4c5;outline-offset:3px}
+@media(max-width:620px){.study-rail{grid-template-columns:repeat(4,1fr);gap:4px}.study-brand{grid-column:1/-1}.study-rail button{font-size:12px;padding:8px 0}}
+.study-rail{grid-template-columns:1.15fr repeat(4,minmax(0,1fr));gap:10px}
+.study-rail button{display:flex;flex-direction:column;justify-content:center;align-items:center;min-width:0;min-height:74px;padding:10px 6px;border:1px solid #e9a4c254;border-radius:3px;background:#ffffff08;transition:background .25s,border-color .25s,transform .25s}
+.study-rail button:hover,.study-rail button:focus-visible{background:#e9a4c21b;border-color:#f0a4c5;transform:translateY(-2px)}
+.study-nav-cn{font-size:clamp(15px,1.25vw,20px);line-height:1.25}
+.study-nav-en{font:10px/1.3 Arial,sans-serif;color:#dda0bb;letter-spacing:.12em;margin-top:6px}
+@media(max-width:620px){.study-rail{grid-template-columns:repeat(4,minmax(0,1fr))}.study-rail button{min-height:64px;padding:7px 3px}.study-nav-cn{font-size:12px}.study-nav-en{font-size:8px;letter-spacing:0}}
+/* Quiet editorial navigation: one shared baseline, no individual boxes. */
+.study-rail{display:grid;grid-template-columns:1.45fr repeat(4,minmax(0,1fr));column-gap:clamp(18px,2vw,38px);align-items:center;width:100%;min-height:90px;padding:0 2.5vw 13px;border-bottom:1px solid #ffffff28}
+.study-brand{justify-self:start;font-size:clamp(25px,2.15vw,35px)}
+.study-rail button{display:flex;flex-direction:column;justify-content:center;align-items:center;min-height:58px;width:100%;padding:5px 0;border:0;border-radius:0;background:transparent;color:#ebe7eb;text-align:center;transform:none!important}
+.study-rail button:hover,.study-rail button:focus-visible{background:transparent;border:0;color:#f0a4c5}
+.study-nav-cn{font-size:clamp(15px,1.08vw,19px);font-weight:500;letter-spacing:.02em}
+.study-nav-en{margin-top:5px;font-size:9px;font-weight:400;letter-spacing:.08em;color:#a99ba4}
+.study-rail button:hover .study-nav-en,.study-rail button:focus-visible .study-nav-en{color:#e8a5c2}
+@media(max-width:620px){.study-rail{grid-template-columns:repeat(4,minmax(0,1fr));gap:0;min-height:100px;padding:0 0 8px}.study-brand{grid-column:1/-1;font-size:20px}.study-rail button{min-height:48px}.study-nav-cn{font-size:12px}.study-nav-en{font-size:7px;letter-spacing:0}}
+/* Center the four navigation labels as a group. */
+.study-rail{position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,170px));justify-content:center;column-gap:clamp(22px,3vw,58px)}
+.study-brand{position:absolute;left:2.5vw;top:50%;transform:translateY(-55%)}
+.study-rail button{grid-row:1}
+@media(max-width:620px){.study-rail{grid-template-columns:repeat(4,minmax(0,1fr));column-gap:0;padding-top:31px}.study-brand{top:4px;left:0;transform:none}.study-rail button{grid-row:auto}}
+.study-nav-cn{font-family:"Microsoft YaHei","PingFang SC",sans-serif;font-size:clamp(17px,1.25vw,22px);font-weight:700;letter-spacing:0;color:#f7f4f6}
+.study-nav-en{font:400 10px/1.3 Arial,sans-serif;letter-spacing:.12em;color:#eaa3c1}
+@media(max-width:620px){.study-nav-cn{font-size:13px}.study-nav-en{font-size:8px;letter-spacing:0}}
+
+
+
+/* Match the handwritten type used in the hero motto. */
+.study-note{font-family:'Yike Nani',cursive;font-size:clamp(23px,2.1vw,36px);line-height:1.5;letter-spacing:.02em;font-synthesis:none;transform:rotate(-1.5deg)}
+@media(max-width:620px){.study-note{font-size:clamp(19px,5vw,26px)}}
+
+/* Brush-script alternative inspired by the reference artwork. */
+@font-face{font-family:'Zhi Mang Xing';src:url('assets/fonts/ZhiMangXing-Regular.ttf') format('truetype');font-style:normal;font-weight:400;font-display:swap}
+.study-note{font-family:'Zhi Mang Xing',cursive;font-size:clamp(28px,2.4vw,42px);line-height:1.45;letter-spacing:.015em;transform:rotate(-1deg)}
+@media(max-width:620px){.study-note{font-size:clamp(22px,5.4vw,30px)}}
+
+/* The selected 卓特自由体 for the chapter closing line. */
+.study-note{font-family:'ZT ZiYouTi',sans-serif;font-size:clamp(22px,1.7vw,30px);line-height:1.6;letter-spacing:.03em;transform:none}
+@media(max-width:620px){.study-note{font-size:clamp(18px,4.5vw,24px)}}
+
+/* Full NaniFont file, matching the handwritten motto on the first screen. */
+@font-face{font-family:'Yike Nani Full';src:url('assets/fonts/NaniFont-Regular.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+.study-note{font-family:'Yike Nani Full',cursive;font-size:clamp(24px,2vw,34px);line-height:1.65;letter-spacing:.02em;font-synthesis:none;transform:rotate(-1.5deg)}
+@media(max-width:620px){.study-note{font-size:clamp(20px,5vw,27px)}}
+
+/* Gongfan's free brush font for the chapter closing note. */
+@font-face{font-family:'Gongfan Free';src:url('assets/fonts/gongfanmianfeiti2.0-Regular.ttf') format('truetype');font-weight:400;font-style:normal;font-display:swap}
+.study-note{font-family:'Gongfan Free',cursive;font-size:clamp(26px,2.15vw,38px);line-height:1.55;letter-spacing:.015em;font-synthesis:none;transform:rotate(-1deg)}
+@media(max-width:620px){.study-note{font-size:clamp(21px,5.2vw,29px)}}
+
+/* Calm handwritten closing copy; the font is subset for this sentence. */
+@font-face{font-family:'Yike WenKai Note';src:url('assets/fonts/yike-study-note-wenkai.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+.study-note{font-family:'Yike WenKai Note','LXGW WenKai',serif;font-size:clamp(23px,1.8vw,32px);line-height:1.7;letter-spacing:.025em;transform:none}
+.study-note .study-note-accent{color:#ce6b9a}
+@media(max-width:620px){.study-note{font-size:clamp(19px,4.8vw,26px)}}
+
+/* Simple English typography for the second screen. */
+.study-note{font-family:Arial,Helvetica,sans-serif;font-size:clamp(21px,1.5vw,28px);font-weight:400;line-height:1.5;letter-spacing:.025em;max-width:950px;transform:none}
+.study-note .study-note-accent{color:#ce6b9a;font-weight:600}
+@media(max-width:620px){.study-note{font-size:clamp(17px,4.3vw,23px);line-height:1.5}}
+
+/* Plain Chinese closing note with restrained pink emphasis. */
+.study-note{font-family:'Microsoft YaHei','PingFang SC',sans-serif;font-size:clamp(19px,1.35vw,26px);font-weight:400;line-height:1.7;letter-spacing:.035em;max-width:700px;transform:none;color:#f3edf1}
+.study-note .study-note-accent{color:#e697bb;font-weight:600}
+@media(max-width:620px){.study-note{font-size:clamp(16px,4.1vw,21px);line-height:1.65}}
+
+/* A soft silver highlight belongs to the image only, clear of the caption. */
+.study{position:relative;transition:transform .38s cubic-bezier(.2,.7,.2,1)}
+.study.is-highlighted{z-index:3;transform:perspective(900px) rotateY(var(--turn,0deg)) translateY(var(--drop,0px)) scale(1.035)}
+.study-shot img{transition:filter .38s ease,box-shadow .38s ease}
+.study.is-highlighted .study-shot img{filter:brightness(1.09) contrast(1.025);box-shadow:0 0 0 1px #f7f7fb87,0 0 18px 4px #e7e7f447}
+@media(prefers-reduced-motion:reduce){.study,.study-shot img{transition:none}}
+
+/* Keep the existing gallery intact while it enters over the held first chapter. */
+.studies{z-index:3;margin-top:-60svh}
+@media(max-width:620px),(prefers-reduced-motion:reduce){.studies{margin-top:0}}
+
+/* Clear hierarchy for the reading direction and optional direct navigation. */
+.study-note .study-note-down{color:#cf6395;font-weight:700}
+.study-note .study-note-direct{display:inline-block;margin-top:.12em;font-size:.78em;color:#c6b8bf}
+@media(max-width:620px){.study-note .study-note-direct{font-size:.82em}}
+
+/* Let the highlighted word itself pulse downward; no arrow is used. */
+.study-note .study-note-down{display:inline-block;animation:study-word-drop 1s ease-in-out infinite alternate}
+@keyframes study-word-drop{from{transform:translateY(0)}to{transform:translateY(4px)}}
+@media(prefers-reduced-motion:reduce){.study-note .study-note-down{animation:none}}
+
+/* Lift the closing guidance slightly within the second-screen layout. */
+.studies .study-note{position:relative;top:-8px}
+@media(max-width:620px){.studies .study-note{top:-5px}}

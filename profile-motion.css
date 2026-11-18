@@ -1,0 +1,263 @@
+/* Contact strip and one-time paper/reading motion. */
+.profile-contact-bar{
+  position:absolute;
+  z-index:2;
+  left:5%;
+  right:5%;
+  bottom:5%;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30%;
+  margin:0;
+  color:#604452;
+  font-style:normal;
+}
+.profile-contact-bar>div{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:12px;
+  min-width:0;
+  padding:14px 0;
+  border-top:2px solid #a25074;
+}
+.profile-contact-bar>div>span{
+  color:#a25074;
+  font:800 clamp(12px,.85vw,16px)/1.35 'Microsoft YaHei',sans-serif;
+  white-space:nowrap;
+}
+.profile-contact-bar a{
+  color:#604452;
+  font:600 clamp(14px,.94vw,18px)/1.35 'Microsoft YaHei',sans-serif;
+  text-decoration:none;
+  overflow-wrap:anywhere;
+}
+.profile-contact-bar a:hover,.profile-contact-bar a:focus-visible{
+  color:#a25074;
+  text-decoration:underline;
+  text-underline-offset:4px;
+}
+@media (min-width:1051px){
+  .profile-chapter .profile-hero{height:clamp(1450px,125svh,1600px)}
+  .profile-chapter .profile-left,.profile-chapter .profile-right{top:27%;bottom:14%}
+  .profile-chapter .profile-right{justify-content:space-between}
+  .profile-chapter .profile-right .profile-side-group:first-child{
+    flex:0 0 auto;
+    display:block;
+    min-height:auto;
+  }
+  .profile-chapter .profile-right .profile-awards{
+    flex:none;
+    display:block;
+  }
+  .profile-chapter .profile-portrait{bottom:12%}
+  .profile-contact-bar{
+    grid-template-columns:28% 28%;
+    justify-content:space-between;
+    gap:0;
+  }
+  .profile-basic-list dt,
+  .profile-skills-list dt{font-size:clamp(16px,1.02vw,20px)}
+  .profile-basic-list dd{font-size:clamp(17px,1.04vw,20px)}
+  .profile-side-group .profile-awards strong{font-size:clamp(16px,1.02vw,20px)}
+  .profile-side-group .profile-awards span{font-size:clamp(15px,.94vw,18px)}
+  .profile-side-group .profile-skills-list dd{font-size:clamp(16px,1vw,19px)}
+}
+@media (max-width:1050px){
+  .profile-contact-bar{
+    position:relative;
+    z-index:5;
+    left:auto;
+    right:auto;
+    bottom:auto;
+    gap:18px;
+    margin:18px 6% 36px;
+  }
+  .profile-contact-bar>div{display:block}
+  .profile-contact-bar>div>span{display:block;margin-bottom:6px}
+}
+@media (max-width:620px){
+  .profile-contact-bar{grid-template-columns:1fr;gap:8px}
+}
+@media (prefers-reduced-motion:no-preference){
+  .profile-chapter.profile-motion-ready .profile-inner{transform:scaleX(.975)}
+  .profile-chapter.profile-motion-ready .profile-section.is-entered .profile-inner{
+    animation:profile-paper-open .95s cubic-bezier(.22,1,.36,1) both;
+  }
+  .profile-chapter.profile-motion-ready .profile-section::before{
+    opacity:.65;
+    transform:translateX(-50%) rotate(-.35deg) scaleX(.97);
+  }
+  .profile-chapter.profile-motion-ready .profile-section.is-entered::before{
+    animation:profile-frame-settle .95s cubic-bezier(.22,1,.36,1) both;
+  }
+  .profile-chapter.profile-motion-ready .profile-row-reveal{
+    opacity:0;
+    transform:translateY(18px);
+    transition:opacity .65s ease,transform .65s cubic-bezier(.22,1,.36,1);
+  }
+  .profile-chapter.profile-motion-ready .profile-row-reveal.is-visible{
+    opacity:1;
+    transform:none;
+  }
+}
+@keyframes profile-paper-open{
+  from{transform:scaleX(.975)}
+  to{transform:scaleX(1)}
+}
+@keyframes profile-frame-settle{
+  from{opacity:.65;transform:translateX(-50%) rotate(-.35deg) scaleX(.97)}
+  to{opacity:1;transform:translateX(-50%) rotate(-.35deg) scaleX(1)}
+}
+
+/* A single rose contact band supports the portrait. */
+.profile-contact-bar{
+  z-index:4;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:clamp(24px,5vw,90px);
+  box-sizing:border-box;
+  min-height:70px;
+  padding:14px 24px;
+  background:#a25074;
+  color:#fffdfa;
+}
+.profile-contact-bar>div{
+  display:flex;
+  align-items:baseline;
+  justify-content:center;
+  gap:3px;
+  padding:0;
+  border:0;
+  white-space:nowrap;
+}
+.profile-contact-bar>div>span,
+.profile-contact-bar a{
+  display:inline;
+  margin:0;
+  color:#fffdfa;
+  font:700 clamp(16px,1.02vw,20px)/1.4 'Microsoft YaHei',sans-serif;
+}
+.profile-contact-bar a:hover,.profile-contact-bar a:focus-visible{
+  color:#fffdfa;
+  text-decoration:underline;
+}
+@media (min-width:1051px){
+  .profile-chapter .profile-hero{height:clamp(1230px,112svh,1380px)}
+  .profile-chapter .profile-left,.profile-chapter .profile-right{top:26%;bottom:auto}
+  .profile-chapter .profile-left{height:var(--profile-column-height,auto)}
+  .profile-chapter .profile-right{justify-content:flex-start;gap:28px}
+  .profile-side-group+.profile-side-group{margin-top:0}
+  .profile-contact-bar{
+    left:50%;
+    right:auto;
+    bottom:4%;
+    width:min(860px,68%);
+    height:70px;
+    min-height:0;
+    gap:0;
+    padding:0 26px;
+    transform:translateX(-50%);
+    border-radius:12px 12px 4px 4px;
+    background:#9f4d72;
+    box-shadow:inset 0 0 0 1px #ffffff45,0 8px 20px #70345226;
+  }
+  .profile-contact-bar>div+div{margin-left:28px;padding-left:28px;border-left:1px solid #ffffff82}
+  .profile-chapter .profile-portrait{bottom:calc(4% + 69px)}
+}
+@media (max-width:1050px){
+  .profile-contact-bar{
+    flex-wrap:wrap;
+    gap:8px 28px;
+    margin:18px 6% 36px;
+  }
+}
+@media (max-width:620px){
+  .profile-contact-bar{justify-content:flex-start}
+  .profile-contact-bar>div{white-space:normal}
+}
+
+/* Keep the torn contact strip clear of the right resume column on the compact page. */
+@media (min-width:1051px) and (min-height:700px){
+  .profile-chapter .profile-contact-bar{
+    left:50%;
+    right:auto;
+    width:min(900px,54%);
+    height:118px;
+    min-height:0;
+    padding:0 66px 0 20px;
+    gap:clamp(12px,2vw,30px);
+    transform:translateX(-50%);
+    background-size:100% 100%;
+  }
+  .profile-chapter .profile-contact-bar>div>span,
+  .profile-chapter .profile-contact-bar a{font-size:clamp(14px,.88vw,18px)}
+  .profile-chapter .profile-portrait{bottom:calc(1.5% + 104px)}
+}
+
+/* The one-line heading leaves more of the first screen for the resume. */
+@media (min-width:1051px){
+  .profile-chapter .profile-hero{height:clamp(1080px,100svh,1220px)}
+  .profile-chapter .profile-heading{top:clamp(42px,5vh,66px)}
+  .profile-chapter .profile-heading h2{
+    font-size:clamp(120px,10vw,200px);
+    line-height:.9;
+    white-space:nowrap;
+  }
+  .profile-chapter .profile-left,.profile-chapter .profile-right{top:18%}
+}
+@media (max-width:1050px){
+  .profile-chapter .profile-heading h2{
+    font-size:clamp(54px,12vw,140px);
+    line-height:1;
+    white-space:nowrap;
+  }
+}
+
+.profile-side-group .profile-skills-list dd .profile-skill-highlight{
+  color:#793551;
+}
+
+/* Torn rose paper, with the white fibers kept in a reusable SVG asset. */
+.profile-contact-bar{
+  background:transparent url('assets/contact-torn-paper-real-v2.png') center/100% 100% no-repeat;
+  border-radius:0;
+  box-shadow:none;
+  filter:none;
+}
+.profile-contact-bar>div>span,
+.profile-contact-bar a{
+  font-size:clamp(18px,1.2vw,23px);
+}
+@media (min-width:1051px){
+  .profile-contact-bar{
+    width:min(820px,66%);
+    height:150px;
+    padding:0 90px 0 24px;
+    border-radius:0;
+    box-shadow:none;
+  }
+  .profile-chapter .profile-portrait{bottom:calc(4% + 100px)}
+}
+@media (max-width:1050px){
+  .profile-contact-bar{min-height:150px;padding:35px 65px 35px 25px}
+}
+
+@media (min-width:1051px){
+  .profile-chapter .profile-left .profile-basic-list{justify-content:stretch}
+  .profile-chapter .profile-left .profile-basic-list>div{
+    flex:1 1 auto;
+    align-items:center;
+  }
+  .profile-chapter .profile-left .profile-basic-list>div:last-child{
+    border-bottom:1px solid #af84973b;
+  }
+  .profile-contact-bar{padding:0 90px 0 24px}
+  .profile-contact-bar>div{align-items:center}
+}
+
+@media (min-width:1051px){
+  .profile-chapter .profile-contact-bar>div>span,
+  .profile-chapter .profile-contact-bar a{font-size:clamp(16px,1vw,20px)}
+}

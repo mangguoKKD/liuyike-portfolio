@@ -1,0 +1,88 @@
+.profile-section{position:relative;isolation:isolate;min-height:100svh;overflow:hidden;background:#0d0c10;color:#f7f4f6;font-family:Arial,"Microsoft YaHei",sans-serif}
+.profile-section::before{content:"";position:absolute;inset:0;z-index:-2;pointer-events:none;background:radial-gradient(ellipse 22% 72% at 0% 54%,#8d234a85,transparent 82%),radial-gradient(ellipse 19% 70% at 100% 58%,#8d234a85,transparent 82%),radial-gradient(ellipse 35% 48% at 50% 72%,#6431484a,transparent 85%)}
+.profile-section::after{content:"";position:absolute;inset:0;z-index:-1;opacity:.18;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.18'/%3E%3C/svg%3E")}
+.profile-inner{max-width:1840px;min-height:100svh;margin:auto;padding:clamp(24px,2.7vw,48px) clamp(36px,5vw,90px) 25px;display:flex;flex-direction:column}
+.profile-topline{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-bottom:20px;border-bottom:1px solid #ffffff38;color:#eadde3;letter-spacing:.12em;font-size:clamp(12px,.95vw,16px)}
+.profile-topline strong{font-size:clamp(22px,2.2vw,38px);letter-spacing:-.06em;color:#fff}.profile-topline strong span,.profile-topline small{color:#eba0c1}.profile-topline small{font:inherit}
+.profile-heading{text-align:center;position:relative;margin:clamp(36px,4.5vw,72px) 0 0}.profile-heading p{margin:0 0 14px;color:#eaa1c1;letter-spacing:.24em;font-size:clamp(12px,.9vw,15px)}
+.profile-heading h2{margin:0;font:900 clamp(100px,15.4vw,280px)/.79 Arial Black,Arial,sans-serif;letter-spacing:-.095em;white-space:nowrap;background:linear-gradient(100deg,#9c949c 9%,#fff 56%,#d9d0d6 93%);background-clip:text;color:transparent;text-shadow:0 0 30px #ffffff20}
+.profile-stage{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(330px,.95fr) minmax(0,1fr);align-items:end;gap:clamp(12px,2vw,32px);min-height:clamp(570px,47vw,760px);margin-top:-6vw;flex:1}
+.profile-left,.profile-right{position:relative;z-index:3;align-self:center;max-width:460px}.profile-left{padding:20px 0 60px}.profile-index{color:#e8a2c1;font-size:clamp(12px,.9vw,16px);letter-spacing:.19em;font-weight:700}
+.profile-left h3{font:700 clamp(32px,3vw,52px)/1.28 "Microsoft YaHei",sans-serif;letter-spacing:.015em;margin:24px 0}.profile-left h3 span{color:#f0a7c9}.profile-left p{max-width:22em;font:clamp(16px,1.14vw,20px)/1.75 "Microsoft YaHei",sans-serif;color:#d5c8ce;margin:0 0 40px}.profile-line{display:block;width:96px;height:2px;background:#e9a2c3;margin-bottom:18px}.profile-left small{color:#bdaab4;letter-spacing:.12em;font-size:12px}
+.profile-portrait{position:relative;z-index:2;align-self:end;height:100%;min-height:600px;display:flex;align-items:end;justify-content:center;pointer-events:none}.profile-portrait img{position:relative;z-index:2;display:block;width:min(100%,690px);max-height:800px;object-fit:contain;object-position:center bottom;filter:drop-shadow(0 20px 35px #0009)}
+.profile-portrait-glow{position:absolute;z-index:1;width:92%;aspect-ratio:1;border-radius:50%;bottom:13%;background:radial-gradient(circle,#e695b34d 0%,#ad53721a 48%,transparent 70%);box-shadow:0 0 0 1px #eba6c547,0 0 0 36px #e89fc010,0 0 0 92px #e89fc009}
+.profile-right{justify-self:end;padding:50px 0 65px}.profile-fact{display:grid;grid-template-columns:52px minmax(0,1fr);gap:14px;padding:27px 0;border-top:1px solid #ffffff42}.profile-fact:last-child{border-bottom:1px solid #ffffff42}.profile-fact .number{font:800 clamp(17px,1.4vw,24px) Arial,sans-serif;color:#eba3c4}.profile-fact h4{margin:0 0 8px;font:700 clamp(20px,1.55vw,26px) "Microsoft YaHei",sans-serif}.profile-fact p{margin:0;font:clamp(14px,1vw,17px)/1.65 "Microsoft YaHei",sans-serif;color:#cfc0c8}
+.profile-bottom{display:flex;justify-content:space-between;position:relative;z-index:4;border-top:1px solid #ffffff38;padding-top:19px;color:#d4b6c3;letter-spacing:.16em;font-size:12px}
+@media(max-width:1050px){.profile-heading h2{font-size:15vw}.profile-stage{grid-template-columns:1fr .95fr 1fr;min-height:600px}.profile-portrait{min-height:520px}.profile-left h3{font-size:30px}.profile-left p{font-size:15px}.profile-fact{grid-template-columns:34px 1fr}.profile-fact h4{font-size:18px}.profile-fact p{font-size:13px}}
+@media(max-width:700px){.profile-inner{padding:24px 20px}.profile-topline{font-size:10px}.profile-heading{margin:42px 0 0}.profile-heading h2{font-size:16vw}.profile-stage{display:flex;flex-direction:column;align-items:stretch;margin-top:22px}.profile-portrait{order:0;min-height:0;height:auto;margin:-15px auto 0;width:min(85%,430px)}.profile-portrait img{width:100%}.profile-left{order:1;padding:25px 0 40px}.profile-right{order:2;justify-self:auto;max-width:none;padding:0 0 45px}.profile-bottom{font-size:10px}}
+
+/* The frame keeps the previous page's black canvas; pink exists only as light. */
+.profile-section{overflow:visible;margin-inline:calc(-1 * clamp(18px,4.6vw,90px));padding:clamp(56px,5vw,86px) clamp(18px,2vw,38px) clamp(18px,2vw,36px);background:radial-gradient(ellipse 36% 55% at 0% 52%,#a9407352,transparent 82%),radial-gradient(ellipse 36% 55% at 100% 52%,#a9407352,transparent 82%),radial-gradient(ellipse 28% 22% at 50% 10%,#bc6c9560,transparent 85%),#101014}
+.profile-section::before,.profile-section::after{display:none}
+.profile-inner{position:relative;isolation:isolate;max-width:1920px;min-height:calc(100svh - clamp(74px,7vw,122px));padding:clamp(28px,2.8vw,48px) clamp(36px,5vw,90px) 25px;background:#101014;border-radius:clamp(26px,3vw,48px);box-shadow:0 0 0 1px #f2b6d039,0 0 44px #e187af3b,0 0 100px #d05e9330,inset 0 0 90px #51233813}
+.profile-inner::before{content:"";position:absolute;left:50%;top:-35px;width:clamp(210px,20vw,360px);height:56px;transform:translateX(-50%);border-radius:50% 50% 0 0 / 85% 85% 0 0;background:#101014;box-shadow:0 -9px 32px #df86ac36;z-index:0}
+.profile-inner::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:0;background-image:url("assets/profile-contours.svg"),radial-gradient(ellipse 32% 50% at 50% 58%,#8a365932,transparent 80%);background-size:cover,auto;background-position:center;opacity:.45}
+.profile-topline,.profile-heading,.profile-stage,.profile-bottom{position:relative;z-index:1}
+.profile-portrait{z-index:2}
+@media(max-width:700px){.profile-section{margin-inline:-12px;padding:48px 10px 16px}.profile-inner{min-height:calc(100svh - 64px);padding:24px 20px;border-radius:25px}.profile-inner::before{top:-25px;width:180px;height:43px}.profile-inner::after{background-size:auto 100%,auto}}
+
+/* Keep the complete desktop profile inside one viewport. */
+@media(min-width:1051px){
+  .profile-section{height:100svh;min-height:690px;padding-top:clamp(48px,5vh,68px);padding-bottom:clamp(14px,2vh,24px)}
+  .profile-inner{height:100%;min-height:0;padding-top:clamp(24px,2.5vh,34px);padding-bottom:18px}
+  .profile-topline{padding-bottom:clamp(12px,1.5vh,18px)}
+  .profile-heading{margin-top:clamp(22px,3vh,38px)}
+  .profile-heading p{margin-bottom:clamp(6px,1vh,12px)}
+  .profile-heading h2{font-size:min(11.2vw,19vh,205px)}
+  .profile-stage{min-height:0;margin-top:clamp(-42px,-3vh,-18px);flex:1}
+  .profile-portrait{min-height:0}
+  .profile-portrait img{max-height:min(60vh,690px)}
+  .profile-left{padding-bottom:clamp(0px,2vh,20px)}
+  .profile-left h3{margin:clamp(12px,1.8vh,22px) 0}
+  .profile-left p{margin-bottom:clamp(18px,2.4vh,32px)}
+  .profile-right{padding:0 0 clamp(0px,2vh,20px)}
+  .profile-fact{padding:clamp(13px,1.7vh,21px) 0}
+  .profile-bottom{padding-top:12px}
+}
+
+/* Pink identity-card variation, tied to the portrait card on the index page. */
+.profile-inner{color:#281b26;background:linear-gradient(122deg,#f5c5d8 0%,#e7a3c2 47%,#f8d3e0 100%);box-shadow:0 0 0 1px #fff8,0 0 38px #e58aae57,0 0 110px #ce629947,inset 0 0 80px #fff6}
+.profile-inner::before{background:#efb7cf;box-shadow:0 -8px 32px #e89dbd70}
+.profile-inner::after{background-image:url("assets/profile-contours.svg"),radial-gradient(ellipse 38% 52% at 50% 60%,#fff8,transparent 78%);opacity:.24}
+.profile-topline{color:#422b3b;border-bottom-color:#6f3f5a4d}
+.profile-topline strong{color:#251924}.profile-topline strong span,.profile-topline small{color:#763855}
+.profile-heading p,.profile-index{color:#743953}
+.profile-heading h2{background:linear-gradient(100deg,#665461 5%,#fff9fc 51%,#9b7188 96%);background-clip:text;color:transparent;text-shadow:0 0 25px #fff8}
+.profile-left h3{color:#281b26}.profile-left h3 span{color:#9f3e70}
+.profile-left p{color:#563b4a}.profile-line{background:#964968}.profile-left small{color:#724e60}
+.profile-portrait-glow{background:radial-gradient(circle,#fff9 0%,#fff3 52%,transparent 72%);box-shadow:0 0 0 1px #fff9,0 0 0 35px #fff2,0 0 0 90px #fff1}
+.profile-fact{border-top-color:#76485f62}.profile-fact:last-child{border-bottom-color:#76485f62}
+.profile-fact .number{color:#903d66}.profile-fact h4{color:#291d27}.profile-fact p{color:#5d4552}
+.profile-bottom{color:#654254;border-top-color:#76485f62}
+
+/* Paper collage direction for the personal profile. */
+.profile-inner{background:linear-gradient(145deg,#f6c8d8 0%,#edaac3 47%,#f8d8e2 100%);box-shadow:0 0 0 1px #fff8,0 0 46px #e791b253,0 0 105px #c95c8d35,inset 0 0 0 8px #fff2}
+.profile-inner::before{background:#f2bfd1}
+.profile-inner::after{opacity:1;background-image:radial-gradient(#61374a38 1px,transparent 1.4px),radial-gradient(#a75e7c27 1px,transparent 1.4px),linear-gradient(135deg,#ffffff29,transparent 45%,#9c487d12);background-size:8px 8px,7px 7px,auto;background-position:right 24px top 35px,left 18px bottom 32px,center;background-repeat:repeat,repeat,no-repeat;mask-image:radial-gradient(ellipse 18% 20% at 93% 12%,#000 5%,transparent 100%),radial-gradient(ellipse 17% 22% at 5% 82%,#000 5%,transparent 100%)}
+.profile-heading h2{font-family:Georgia,"Times New Roman",serif;font-weight:800;letter-spacing:-.075em;background:none;color:#3b2633;text-shadow:none}
+.profile-heading p,.profile-index{color:#7d3d5b}
+.profile-portrait-glow{border:2px dashed #fff9;background:radial-gradient(circle,#fff7,transparent 70%);box-shadow:0 0 0 22px #fff1,0 0 0 46px #fff1}
+.profile-left h3,.profile-fact h4{font-family:Georgia,"Microsoft YaHei",serif}
+.profile-fact{border-top-style:dashed}.profile-fact:last-child{border-bottom-style:dashed}
+@media(min-width:1051px){.profile-heading h2{font-size:min(10.6vw,18vh,194px)}}
+
+/* Solid rose card with a dark gap above and pink light on the black canvas. */
+.profile-section{margin-top:28px;background:radial-gradient(ellipse 35% 45% at 50% 13%,#e284ae59,transparent 78%),radial-gradient(ellipse 30% 60% at 0% 56%,#c64d8745,transparent 82%),radial-gradient(ellipse 30% 60% at 100% 56%,#c64d8745,transparent 82%),#101014}
+.profile-inner{background:#c9759d;color:#24151f;box-shadow:0 0 0 1px #f7c9dd80,0 0 42px #e18bb165,0 0 110px #bd4b8554,inset 0 0 0 1px #fff5}
+.profile-inner::before{background:#c9759d;box-shadow:0 -8px 35px #e793b877}
+.profile-inner::after{background:url("assets/profile-contours.svg") center/cover no-repeat;mask-image:none;opacity:.22;filter:brightness(0)}
+.profile-heading h2{color:#2f1c2a;background:none;text-shadow:none}
+.profile-portrait-glow{border-color:#ffd8e7a8;background:radial-gradient(circle,#ffd9e244,transparent 72%)}
+@media(min-width:1051px){.profile-section{height:calc(100svh - 28px);padding-top:clamp(58px,6vh,80px)}}
+@media(max-width:700px){.profile-section{margin-top:18px}}
+
+/* Muted rose stock and fine paper grain, sampled from the portrait collage. */
+.profile-inner{background:#ce839d}
+.profile-inner::before{background:#ce839d}
+.profile-inner::after{background-image:url("assets/profile-paper-grain.svg"),radial-gradient(#723a5340 .7px,transparent 1px);background-size:320px 320px,11px 11px;background-repeat:repeat,repeat;mask-image:none;filter:none;mix-blend-mode:multiply;opacity:.42}
+

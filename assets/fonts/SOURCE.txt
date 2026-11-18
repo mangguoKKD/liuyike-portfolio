@@ -1,0 +1,1 @@
+NaniFont Regular, version 1.036. Source: https://github.com/max32002/nanifont . License: SIL OFL 1.1 (OFL.txt). yike-motto.woff2 is a glyph subset for the homepage motto; no glyph outlines changed.

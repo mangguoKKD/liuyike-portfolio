@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="900" viewBox="0 0 900 900">
+  <filter id="plaster" x="-15%" y="-15%" width="130%" height="130%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.008 0.014" numOctaves="4" seed="27" result="cloud"/>
+    <feColorMatrix in="cloud" type="matrix" values="
+      0.58 0 0 0 0.26
+      0 0.30 0 0 0.09
+      0 0 0.42 0 0.16
+      0 0 0 0.22 0" result="softCloud"/>
+    <feTurbulence type="fractalNoise" baseFrequency="0.055" numOctaves="2" seed="8" result="grain"/>
+    <feColorMatrix in="grain" type="saturate" values="0" result="grayGrain"/>
+    <feComponentTransfer in="grayGrain" result="faintGrain">
+      <feFuncA type="table" tableValues="0 0.055"/>
+    </feComponentTransfer>
+    <feBlend in="softCloud" in2="faintGrain" mode="multiply"/>
+  </filter>
+  <rect width="900" height="900" fill="#f8dfe9"/>
+  <rect x="-60" y="-60" width="1020" height="1020" filter="url(#plaster)" opacity=".72"/>
+  <g fill="none" stroke="#fff7fa" stroke-linecap="round" opacity=".18">
+    <path d="M-80 154C135 70 282 236 506 132S825 37 1000 112" stroke-width="86"/>
+    <path d="M-120 570C136 440 322 663 555 544S842 448 1030 521" stroke-width="112"/>
+  </g>
+</svg>
