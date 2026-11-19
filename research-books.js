@@ -168,9 +168,8 @@
     return element;
   }
 
-  function articleAbstractPage(paper, index, paragraph, part) {
-    const continued = part > 0;
-    const [element, content] = researchPage('research-paper-abstract', `ARTICLE 0${index + 1} / ABSTRACT${continued ? ' · CONTINUED' : ''}`);
+  function articleAbstractPage(paper, index) {
+    const [element, content] = researchPage('research-paper-abstract', `ARTICLE 0${index + 1} / ABSTRACT`);
     element.dataset.paper = String(index + 1);
     const titlebar = document.createElement('div');
     titlebar.className = 'research-abstract-titlebar';
@@ -186,11 +185,17 @@
     titlebar.append(heading, toggle);
     const body = document.createElement('div');
     body.className = 'research-abstract-body';
-    const english = text('p', 'research-abstract-en', paragraph);
-    english.lang = 'en';
-    const chinese = text('p', 'research-abstract-zh', paper.abstractZh[part]);
-    chinese.lang = 'zh-CN';
-    body.append(english, chinese);
+    const english = paper.abstract.map(paragraph => {
+      const item = text('p', 'research-abstract-en', paragraph);
+      item.lang = 'en';
+      return item;
+    });
+    const chinese = paper.abstractZh.map(paragraph => {
+      const item = text('p', 'research-abstract-zh', paragraph);
+      item.lang = 'zh-CN';
+      return item;
+    });
+    body.append(...english, ...chinese);
     content.append(titlebar, body, text('span', 'research-article-footer', `${paper.journal.toUpperCase()} · ${paper.year}`));
     updateAbstractPage(element, index);
     return element;
@@ -198,11 +203,10 @@
 
   function updateAbstractPage(page, index) {
     const chinese = abstractLanguage[index] === 'zh';
-    const continued = page.querySelector('.research-abstract-heading').textContent.includes('CONTINUED') || page.querySelector('.research-article-kicker').textContent.includes('CONTINUED');
-    page.querySelector('.research-abstract-heading').textContent = chinese ? (continued ? '摘要 / 续' : '摘要') : (continued ? 'ABSTRACT / CONTINUED' : 'ABSTRACT');
+    page.querySelector('.research-abstract-heading').textContent = chinese ? '摘要' : 'ABSTRACT';
     page.querySelector('.research-abstract-toggle').textContent = chinese ? '查看英文原文' : '查看中文译文';
-    page.querySelector('.research-abstract-en').hidden = chinese;
-    page.querySelector('.research-abstract-zh').hidden = !chinese;
+    page.querySelectorAll('.research-abstract-en').forEach(paragraph => { paragraph.hidden = chinese; });
+    page.querySelectorAll('.research-abstract-zh').forEach(paragraph => { paragraph.hidden = !chinese; });
   }
 
   function researchNextPage() {
@@ -365,7 +369,7 @@
       pages.push(contentsPage(volume.papers));
       volume.papers.forEach((paper, index) => {
         pages.push(articleInfoPage(paper, index));
-        paper.abstract.forEach((paragraph, part) => pages.push(articleAbstractPage(paper, index, paragraph, part)));
+        pages.push(articleAbstractPage(paper, index));
       });
       pages.push(researchNextPage());
     } else {
