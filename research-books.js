@@ -173,7 +173,7 @@
     element.dataset.paper = String(index + 1);
     const titlebar = document.createElement('div');
     titlebar.className = 'research-abstract-titlebar';
-    const heading = text('h3', 'research-abstract-heading', continued ? 'ABSTRACT / CONTINUED' : 'ABSTRACT');
+    const heading = text('h3', 'research-abstract-heading', 'ABSTRACT');
     const toggle = text('button', 'research-abstract-toggle', '查看中文');
     toggle.type = 'button';
     toggle.setAttribute('aria-label', `切换第 ${index + 1} 篇论文摘要的语言`);
